@@ -9,7 +9,7 @@
 
 `ghost-bits-encoder` 是一个面向 [Woodpecker](https://github.com/woodpecker-framework/woodpecker-framwork-release/releases) 的辅助插件，围绕 Ghost Bits / Unicode 高位包装思路，提供通用编解码、JSON 相关编码、URL 相关编码以及若干专项辅助能力。
 
-当前仓库只有中文文档，尚未包含 `README_en.md`。
+简体中文 | [English](README_en.md)
 
 ---
 
@@ -262,8 +262,8 @@ mvn test
 
 ## 贡献者（排名不分先后）
 
-[whwlsfb](https://github.com/whwlsfb/) @ SgLab
-[Xenc](https://github.com/rsxenc-maker/) @ SgLab
+- [whwlsfb](https://github.com/whwlsfb/)@SgLab
+- [Xenc](https://github.com/rsxenc-maker/)@SgLab
 
 <img src="./images/sglab.svg" width="300" alt="SgLab">
 
