@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '8'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn -B clean package
+
+      - name: Collect build artifacts
+        run: |
+          mkdir -p dist
+          find target -maxdepth 1 -type f \( -name '*.jar' -o -name '*.war' -o -name '*.zip' \) -exec cp {} dist/ \;
+          ls -la dist
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: dist/*
